@@ -5,38 +5,64 @@
   <img src="amazon-web-services-logo-png-transparent-svg-vector.png">
 </div>
 
+<!-- <font-awesome-icon icon="circle-user" /> -->
 
  <div class="delivery">
-       <span class="">Deliver to</span>
+   <div class="locationIcon"><font-awesome-icon icon="location-dot" /></div>
+   <div>
+<span class="">Deliver to</span>
       <p class="">Kenya</p> 
+   </div>
+       
     </div>
      <div class="inputs">
-       <select class="selector" >
-         <option>ALL</option>
-         <!-- <option v-for="item in productList" :key="item">{{item}}</option> -->
+       
+       <select class="selector" ref="select">
+         <option class="options">All <font-awesome-icon icon="caret-down" /></option>
+          <option v-for="item in productList" :key="item" class="options">{{item}}</option> 
        </select>
-
-       <input type="search" @click="changeBg">
-       <div class="querry"></div>
+<div class="section-2">
+  <div class="referal" @click="engageSelector">ALL</div>
+  <input type="search" @click="changeBg">
+       <div class="querry"><font-awesome-icon class="searchIcon"
+       icon="magnifying-glass" /></div>
      </div>
-     
-     <div class="delivery">
+</div>
+         
+     <div class="accounts">
        <span class="hello">Hello, sign in</span>
        <p class="acc">Accounts & lists</p>
      </div>
-     <div class="delivery">
+     <div class="returns">
        <span class=" ">Returns
          <p class=""> & Orders</p>
        </span>
      </div>
-     <div class="delivery">
+     <div class="cart">
        <p class="">Cart</p>
      </div>
       </div>
 
       <div class="segment2">
-
-
+<div class="side-menu">
+  <font-awesome-icon icon="bars" />
+  <p>All</p>
+</div>
+<div class="deals">
+  <p>Today's Deals</p>
+</div>
+<div class="service">
+  <p>Customer Service</p>
+</div>
+<div class="registry">
+  <p>Registry</p>
+</div>
+<div class="gift-cards">
+  <p>Gift Cards</p>
+</div>
+<div class="sell">
+  <p>Sell</p>
+</div>
       </div>
 
       <!-- <div class="listpopup">
@@ -48,17 +74,21 @@
 </template>
 
 <script>
-
+import { ref } from 'vue'
 export default {
   setup() {
-    const productList = ["All Departments", "Arts & crafts", "Automotive" ];
+    const productList = [ "All Departments", "Arts & crafts", "Automotive" ];
 
-    return { productList }
+    function engageSelector(){
+      ref.selector.click() 
+    }
+
+    return { productList, engageSelector }
   },
 }
 </script>
 
-<style>
+<style scoped>
 #nav{ 
      color:#fff;
 }
@@ -70,15 +100,28 @@ export default {
    background-color:#131921;
   display: flex;
   gap:10px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding: 10px;
   border: none;
 }
-
 .amazonlogo img{
   width:80px;
   height: 100%;
    cursor: pointer;
+}
+.referal{
+  background-color: #fff;
+   color: black;
+   padding: 12px;
+  cursor: pointer;
+  color: #636363;
+  font-size:12px;
+}
+.section-2{
+  display: flex;
+  position: absolute;
+  z-index: 1;
+  border-radius: 5px;
+  overflow: hidden;
 }
 .selector{
   cursor:pointer;
@@ -86,7 +129,10 @@ export default {
   padding: 10px;
   color:#636363;
   font-size: 12px;
-  
+  width: 120px;
+  position: absolute;
+  z-index: 0;
+  /* visibility: hidden; */
 }
 .selector:hover{
 transition: 2s;
@@ -96,26 +142,33 @@ background: #d2d1d4;
   outline-color: orange;
   outline:orange;
 }
+.options{
+  padding: 0 20px;
+  width: 100px;
+}
 input:focus{
 outline: none;
 }
 .delivery{
+display: flex;
 cursor: pointer;
 padding: 3px;
+gap: 5px;
 }
 .delivery:hover{
-  border: 1px solid #fff;
+  border: 0.5px solid #fff;
+}
+.locationIcon{
+  margin: auto ;
 }
 .inputs{
-  width:60%;
-  border-radius: 5px;
-  overflow: hidden;
+  width:55%;
   display: flex;
   border: none;
   margin: 0 auto;
 }
 .inputs input{
-  width:66%;
+  width:650px;
   padding: 10px;
   border: 0.5px solid rgb(190, 190, 190);
 }
@@ -126,12 +179,55 @@ padding: 3px;
   cursor: pointer;
 }
 .querry:hover{
-  background: orange;
+  background: rgb(219, 155, 34);
 }
 .segment2{
   background-color: #232f3e;
   padding: 10px;
   border: none;
 }
-
+.querry{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.searchIcon{
+  color: black;
+  font-size: 20px;
+}
+.cart{
+  cursor: pointer;
+}
+.returns{
+  cursor: pointer;
+}
+.accounts{
+  cursor: pointer;
+}
+.segment2{
+  display: flex;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 600;
+}
+.side-menu{
+  display: flex;
+  gap: 5px;
+  cursor: pointer;
+}
+.service{
+  cursor: pointer;
+}
+.registry{
+  cursor: pointer;
+}
+.gift-cards{
+  cursor: pointer;
+}
+.sell{
+  cursor: pointer;
+}
+.deals{
+  cursor: pointer;
+}
 </style>

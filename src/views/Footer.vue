@@ -1,7 +1,7 @@
 <template>
     <div id="footer">
         <div class="backTop">
-            <p @click="top">Back To Top</p>
+            <h5 @click="top">Back To Top</h5>
         </div>
         <div class="mid-footer">
             <div class="container">
@@ -42,11 +42,173 @@
                     <p>Amazon Assistant</p>
                     <p>Help</p>
                 </div>
-                <div class="part-5">
-
-                </div>
+                
                 
             </div>
+            <div class="part-5">
+
+                </div>
+                <div class="part-6">
+                    <div class="contain">
+                        <div class="wrapper">
+                         <div class="segment1">
+                               
+                                   <div>
+                                       <h6>Amazon Music</h6>
+                                   <span>Stream millions of songs</span>
+                                   </div>
+                                    <div>
+                                       <h6>Sell on Amazon</h6>
+                                   <span>Start of a selling account</span>
+                                   </div>
+                                    <div>
+                                       <h6>IMDB</h6>
+                                   <span>Movies, TV & celebrities</span>
+                                   </div>
+                                    <div>
+                                       <h6>Ring</h6>
+                                   <span>Smart Home Security Systems</span>
+                                   </div>
+                                  
+                         </div>
+                         <div class="segment2">
+                              <div>
+                                       <h6>Amazon Advertising</h6>
+                                   <span>Stream millions of songs</span>
+                                   </div>
+                                    <div>
+                                       <h6>Amazon Business</h6>
+                                   <span>Stream millions of songs</span>
+                                   </div>
+                                    <div>
+                                       <h6>Box Ofiice mojo</h6>
+                                   <span>Stream millions of songs</span>
+                                   </div>
+                                    <div>
+                                       <h6>IDMB Pro</h6>
+                                   <span>Stream millions of songs</span>
+                                   </div>
+                                    <div>
+                                       <h6>eero Wifi</h6>
+                                   <span>Stream 4k</span>
+                                   </div>
+                                   
+                         </div>
+                         <div class="segment3">
+                              <div>
+                                       <h6>Amazon Advertising</h6>
+                                   <span>Stream millions of songs</span>
+                                   </div>
+                                    <div>
+                                       <h6>Amazon Business</h6>
+                                   <span>Stream millions of songs</span>
+                                   </div>
+                                    <div>
+                                       <h6>Box Ofiice mojo</h6>
+                                   <span>Stream millions of songs</span>
+                                   </div>
+                                    <div>
+                                       <h6>IDMB Pro</h6>
+                                   <span>Stream millions of songs</span>
+                                   </div>
+                                    <div>
+                                       <h6>eero Wifi</h6>
+                                   <span>Stream 4k</span>
+                                   </div>
+                         </div>
+                         <div class="segment4">
+                               <div>
+                                       <h6>Amazon Advertising</h6>
+                                   <span>Stream millions of songs</span>
+                                   </div>
+                                    <div>
+                                       <h6>Amazon Business</h6>
+                                   <span>Stream millions of songs</span>
+                                   </div>
+                                    <div>
+                                       <h6>Box Ofiice mojo</h6>
+                                   <span>Stream millions of songs</span>
+                                   </div>
+                                    <div>
+                                       <h6>IDMB Pro</h6>
+                                   <span>Stream millions of songs</span>
+                                   </div>
+                                    <div>
+                                       <h6>eero Wifi</h6>
+                                   <span>Stream 4k</span>
+                                   </div>
+                         </div>
+                         <div class="segment5">
+                                <div>
+                                       <h6>Amazon Advertising</h6>
+                                   <span>Stream millions of songs</span>
+                                   </div>
+                                    <div>
+                                       <h6>Amazon Business</h6>
+                                   <span>Stream millions of songs</span>
+                                   </div>
+                                    <div>
+                                       <h6>Box Ofiice mojo</h6>
+                                   <span>Stream millions of songs</span>
+                                   </div>
+                                    <div>
+                                       <h6>IDMB Pro</h6>
+                                   <span>Stream millions of songs</span>
+                                   </div>
+                                    <div>
+                                       <h6>eero Wifi</h6>
+                                   <span>Stream 4k</span>
+                                   </div>
+                         </div>
+                         <div class="segment6">
+                                <div>
+                                       <h6>Amazon Advertising</h6>
+                                   <span>Stream millions of songs</span>
+                                   </div>
+                                    <div>
+                                       <h6>Amazon Business</h6>
+                                   <span>Stream millions of songs</span>
+                                   </div>
+                                    <div>
+                                       <h6>Box Ofiice mojo</h6>
+                                   <span>Stream millions of songs</span>
+                                   </div>
+                                    <div>
+                                       <h6>IDMB Pro</h6>
+                                   <span>Stream millions of songs</span>
+                                   </div>
+                                    <div>
+                                       <h6>eero Wifi</h6>
+                                   <span>Stream 4k</span>
+                                   </div>
+                         </div>
+                         <div class="segment7">
+                              <div>
+                                       <h6>Amazon Advertising</h6>
+                                   <span>Stream millions of songs</span>
+                                   </div>
+                                    <div>
+                                       <h6>Amazon Business</h6>
+                                   <span>Stream millions of songs</span>
+                                   </div>
+                                    <div>
+                                       <h6>Box Ofiice mojo</h6>
+                                   <span>Stream millions of songs</span>
+                                   </div>
+                                    <div>
+                                       <h6>IDMB Pro</h6>
+                                   <span>Stream millions of songs</span>
+                                   </div>
+                                    <div>
+                                       <h6>eero Wifi</h6>
+                                   <span>Stream 4k</span>
+                                   </div>
+                         </div>
+                         
+                        </div>
+                        
+                    </div>
+                </div>
         </div>
     </div>
 </template>
@@ -64,6 +226,7 @@ top
 <style scoped>
 .mid-footer{
     display: flex;
+    flex-direction: column;
 }
 .backTop{
     padding: 10px;
@@ -79,7 +242,91 @@ top
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(4,1fr);
+    /* border-bottom: 0.5px solid grey; */
+}
+.container p{
+     font-size: 14px;
+    font-weight: 500;
+}
+.wrapper{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    padding: 24px;
+}
+.wrapper span{
+    font-size: 10px;
+    color: #ceced1;
+    display: flex;
+    justify-content: flex-start;
+}
+h6{
+   display: flex;
+    justify-content: flex-start; 
+}
+h4{
+   display: flex;
+    justify-content: flex-start; 
+}
+p{
+   display: flex;
+    justify-content: flex-start; 
+    color: #ceced1;
     font-size: 12px;
 }
+.segment1{
+    display: flex;
+    flex-direction: column;
+     gap: 20px;
+}
+.segment2{
+    display: flex;
+    flex-direction: column;
+     gap: 20px;
+}
+.segment3{
+    display: flex;
+    flex-direction: column;
+     gap: 20px;
+}
+.segment4{
+    display: flex;
+    flex-direction: column;
+     gap: 20px;
+}
+.segment5{
+    display: flex;
+    flex-direction: column;
+     gap: 20px;
+}
+.segment6{
+    display: flex;
+    flex-direction: column;
+     gap: 20px;
+}
+.segment7{
+    display: flex;
+    flex-direction: column;
+     gap: 20px;
+}
+.part1{
+     display: flex;
+    flex-direction: column;
+     gap: 10px;
 
+}
+.part2{
+     display: flex;
+    flex-direction: column;
+     gap: 10px;
+}
+.part3{
+     display: flex;
+    flex-direction: column;
+     gap: 10px;
+}
+.part4{
+     display: flex;
+    flex-direction: column;
+     gap: 10px;
+}
 </style>
