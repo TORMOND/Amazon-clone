@@ -2,8 +2,9 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
-productId: "" 
-
+productId: "",
+sideMenu:false,
+user: null
   },
   mutations: {
 

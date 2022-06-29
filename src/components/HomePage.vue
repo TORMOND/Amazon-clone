@@ -1,6 +1,53 @@
 <template>
+
   <div id="homepage">
-   <Navigationbar/>
+    <font-awesome-icon @click="closeSidemenu" class="cancel" icon="xmark" />
+    <div class="backdrop">
+      <div class="side-menu">
+<div class="top-part">
+<font-awesome-icon class="user" icon="circle-user" />
+  <h2 class="signin-msg">Hello,Sign in</h2>
+   
+</div>
+<div class="rem-section">
+  <h3>Digital content & Devices</h3>
+  <ul>
+    <li>Amazon Music</li>
+    <li>Kindle E-Readers & Books</li>
+    <li>Appstore for Android</li>
+  </ul>
+  <h3>Shop By Department</h3>
+  <ul>
+    <li>Electronics</li>
+    <li>Computers</li>
+    <li>Smart Home</li>
+    <li>Arts & Crafts</li>
+    <li>See All</li>
+  </ul>
+  <h3>Program & Features</h3>
+  <ul>
+    <li>Gift Cards</li>
+    <li># FoundItOnAmazon</li>
+    <li>AmazonLive</li>
+    <li>Interantional Shopping</li>
+    <li>See All</li>
+  </ul>
+  <h3>Help & Settings</h3>
+  <ul>
+    <li>Your Account</li>
+    <li>English</li>
+    <li>United States</li>
+    <li>Customer Service</li>
+    <li>Sign in</li>
+  </ul>
+</div>
+    </div>
+    </div>
+    
+    <div id="modulePage">
+
+   
+   <Navigationbar  @activateMenu="toggleSidemenu" />
 
 <div id="container">
   <div class="contain">
@@ -9,6 +56,7 @@
     <div class="slides">
        <img :src="backgroundImages[0]" id="backgroundImg" >
     </div>
+
  <!-- <div class="slides">
        <img :src="backgroundImages[1]" id="backgroundImg">
     </div>
@@ -179,7 +227,6 @@
 
       
   
-  
   </ul>
  
 </div>
@@ -194,6 +241,7 @@
 </div>
  
  <Footer/>
+  </div>
   </div>
 </template>
 
@@ -264,19 +312,33 @@ const slideShow = () =>{
 }
 
 function productsPage(){
-
 router.push('/ProductsPage')
 }
 function signIn(){
-
 router.push('/SignInPage');
 }
 function next(){
 const slides = document.querySelector('.carousel');
- 
+
+}
+function toggleSidemenu(){
+  const menu = document.querySelector('.backdrop');
+  menu.style.display = "block";
+  const cancel = document.querySelector('.cancel');
+  cancel.style.display ="block";
+  const module = document.querySelector('#modulePage');
+  module.classList = "active";
+}
+function closeSidemenu(){
+  const menu = document.querySelector('.backdrop');
+  menu.style.display = "none";
+  const cancel = document.querySelector('.cancel');
+  cancel.style.display ="none";
+  const module = document.querySelector('#modulePage');
+  module.classList = "";
 }
 
-return{  slideShow, images, categoryImages, healthImage, toysImg, frequentsImage, movieImages,gameImages, books, gamingMerch, productsPage, backgroundImages,next}
+return{  slideShow, images, categoryImages, healthImage, toysImg, frequentsImage, movieImages,gameImages, books, gamingMerch, productsPage, backgroundImages,next, toggleSidemenu, closeSidemenu}
   },
  
 }
@@ -284,6 +346,17 @@ return{  slideShow, images, categoryImages, healthImage, toysImg, frequentsImage
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+#modulePage{
+  background: #e5ece8;
+  height:100%;
+  width:100%;
+}
+#modulePage.active{
+  opacity: 0.5;
+  user-select: none;
+  pointer-events: none;
+  scroll-behavior: none;
+}
 .contain{
   position: relative;
  overflow: hidden;
@@ -293,7 +366,15 @@ return{  slideShow, images, categoryImages, healthImage, toysImg, frequentsImage
 }
 .carousel{
   display: flex;
-
+}
+.cancel{
+  font-size:28px;
+   cursor: pointer;
+   position: absolute;
+   margin-top:10px;
+   margin-left:-150px;
+   z-index: 3;
+   display: none;
 }
 .slides{
 object-fit: cover;
@@ -394,7 +475,6 @@ background-color: Black;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
 }
-
 .items{
   cursor: pointer;
   display: flex;
@@ -529,14 +609,71 @@ border: none;
 }
 .products {
   position:relative;
-
 }
 .products  li{
   position: absolute;
     object-fit: cover;
     list-style: none;
 }
+.backdrop{
+  display:none;
+  position:absolute;
+  z-index:2;
+  height: 100vh;
+  width: 100vw;
+}
+.side-menu{
+ height: 100vh;
+ width:25vw;
+ background-color:#fff;
+ animation:slidemenu 0.8s;
+ animation-timing-function: linear;
+}
 
+@keyframes slidemenu{
+   from{
+transform: translateX(-250px);
+   }
+   to{
+ transform: translateX(0px);
+   }
+}
+
+.rem-section{
+  height:inherit;
+overflow-y:scroll;
+padding: 10px;
+}
+.top-part{
+  display: flex;
+  padding: 10px;
+  gap: 10px;
+  color: #fff;
+  background-color: #232f3e;
+}
+.user{
+  font-size: 24px;
+  color: #fff;
+}
+.rem-section{
+  display: flex;
+  flex-direction: column;
+}
+.rem-section li{
+  padding: 10px;
+  list-style: none;
+}
+.rem-section ul{
+   display: inline-flex;
+   flex-direction: column;
+}
+.rem-section h3{
+  padding: 10px;
+  display: inline-flex;
+}
+.signin-msg{
+  font-weight: 600;
+}
 @media all and (max-width:1200px) {
   .toplayer{
     display: grid;

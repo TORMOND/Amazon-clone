@@ -44,10 +44,13 @@
       </div>
 
       <div class="segment2">
-<div class="side-menu">
-  <font-awesome-icon icon="bars" />
-  <p>All</p>
-</div>
+
+ 
+  <button @click="activateSidemenu" class="sidemenu-activator">
+    <font-awesome-icon icon="bars" /> 
+    All
+    </button>
+  
 <div class="deals">
   <p>Today's Deals</p>
 </div>
@@ -64,7 +67,6 @@
   <p>Sell</p>
 </div>
       </div>
-
       <!-- <div class="listpopup">
         <select style="display:none;">
           <option v-for="item in productList" :key="item">{{item}}</option>
@@ -74,17 +76,24 @@
 </template>
 
 <script>
-import { ref } from 'vue'
+
 export default {
-  setup() {
-    const productList = [ "All Departments", "Arts & crafts", "Automotive" ];
 
-    function engageSelector(){
-      ref.selector.click() 
-    }
 
-    return { productList, engageSelector }
+data() {
+  return {
+    productList : [ "All Departments", "Arts & crafts", "Automotive" ],
+  }
+},
+
+methods: {
+  activateSidemenu:function(){
+    this.$emit('activateMenu');
   },
+ engageSelector:function(){
+      this.$ref.selector.click();
+    }
+},
 }
 </script>
 
@@ -166,6 +175,7 @@ gap: 5px;
   display: flex;
   border: none;
   margin: 0 auto;
+  /* background-color:aqua; */
 }
 .inputs input{
   width:650px;
@@ -208,13 +218,17 @@ gap: 5px;
   display: flex;
   gap: 10px;
   font-size: 14px;
-  font-weight: 600;
 }
-.side-menu{
+.sidemenu-activator{
+  border: none;
+  background-color: transparent;
+  color: #fff;
+  cursor: pointer;
   display: flex;
   gap: 5px;
   cursor: pointer;
 }
+
 .service{
   cursor: pointer;
 }

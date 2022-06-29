@@ -3,14 +3,13 @@
   
     <div id="modal" v-if="modal" >
     <div class="create">
-        <h2> New Location</h2>
-      <!-- <button @click="open" v-if="closed">X</button> -->
+        <h2> New Product</h2>
       <button @click="closeModal">X</button> 
     </div>
      
  <div class="text">
- <input placeholder="Location's Name" v-model="remarks" class="location-input">
-  <input placeholder="Price Charges" v-model="charges" class="price-input">
+ <input placeholder="Product" v-model="remarks" class="location-input">
+  <input placeholder="Price" v-model="charges" class="price-input">
   </div>
   <div class="include">
 
@@ -20,7 +19,7 @@
 
 <input type="file" style="display:none;" @change="onFileSelected" ref="fileInput">
 <img :src="imageUrl"  style="overflow-y:auto">
-<!-- <iframe :src="videoUrl" class="video" v-if="video"></iframe> -->
+
 <h3>Add photo</h3>
 
 </div>
@@ -36,11 +35,11 @@
 
 
  <div class="menu" @click="toggleMenu" >
-      <!-- <font-awesome-icon :icon="['fab', 'youtube']"/> --> 
+       
       <div class="tab" >
           <ul>
              <li @click="openModal">
-               <p v-if="lists" >Add New Location</p>
+               <p v-if="lists" >Add New Product</p>
                 <font-awesome-icon class="icons" icon="circle-plus" />
                 </li>
              <li>
@@ -60,7 +59,7 @@
           </ul>
          
     </div>
-<!-- <font-awesome-icon class="menu-icon" @click="toggleMenu" icon="align-justify"/> -->
+
   </div>
 
   <div id="main-page"  @click="untoggle">
@@ -87,7 +86,6 @@
     <font-awesome-icon icon="magnifying-glass" />
   </button>
   
-    <!-- <font-awesome-icon icon="fa-regular fa-alien-8bit" /> -->
   
 </div>
 </div>
@@ -138,8 +136,7 @@ export default {
           remarks:'',
           lists:true,
           charges: '',
-          num:'',
-          
+          num:'',     
         }
     },
     methods: {
@@ -149,11 +146,11 @@ const menu = document.querySelector('.menu');
 menu.style.left = "170px";
 menu.style.transition = "2s";
       },
-       untoggle:function(){   
+   untoggle:function(){   
 const menu = document.querySelector('.menu');
 menu.style.left = "-10px";
       },
-      openModal:function(){
+  openModal:function(){
           this.modal=true
            const app = document.querySelector('#main-page')
          app.classList="active"   
@@ -165,14 +162,14 @@ closeModal:function(){
          this.videoUrl=null
          this.imageUrl= null
       },
-        pickFile:function(){
+  pickFile:function(){
           if(this.lists= true){
          this.$refs.fileInput.click()   
           }
     
       },
-        onFileSelected:function(event){
-            console.log("file selected");
+  onFileSelected:function(event){
+     console.log("file selected");
 const files = event.target.files;
 let filename = files[0].name;
 const fileReader = new FileReader();
@@ -218,14 +215,14 @@ var number;
 number = Math.random()*10000
 this.num =number
 
-console.log(this.num)
+console.log(this.num);
 
 const colRef = collection(db,'Maps');
  
  addDoc(colRef, { 
     locationName:this.remarks,
     locationId:this.num,
-     url:url,
+    url:url,
     createdAt:serverTimestamp(),
     type:this.image.type,
     });

@@ -1,6 +1,7 @@
 <template>
   <div id="productsPage">
        <Navigationbar/>
+
 <div class="container">
 
   <div class="advertisements">
@@ -251,7 +252,6 @@ export default {
 .definition{
  font-weight: 600;
  width:20%;
-
 }
 .ratings{
   color:#FFA41C;
