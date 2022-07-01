@@ -49,30 +49,21 @@
    
    <Navigationbar  @activateMenu="toggleSidemenu" />
 
+
+ 
 <div id="container">
   <div class="contain">
    
-   <div class="carousel">
-    <div class="slides">
-       <img :src="backgroundImages[0]" id="backgroundImg" >
-    </div>
+   <div class="carousel"> 
 
- <!-- <div class="slides">
-       <img :src="backgroundImages[1]" id="backgroundImg">
-    </div>
-     <div class="slides">
-       <img :src="backgroundImages[2]" id="backgroundImg">
-    </div>
-     <div class="slides">
-       <img :src="backgroundImages[3]" id="backgroundImg">
-    </div> 
-      <div class="slides">
-       <img :src="backgroundImages[4]" id="backgroundImg">
-    </div>  -->
-
+<div class="slides">
+  <carousel :slides="slides" :interval="10000" controls indicators></carousel>
+</div>
+     
+     
 </div>
    
-  <div class="btns">
+  <!-- <div class="btns">
     
  <button class="left" @click="prev">
       <img src="arrowbtns-left.png" alt="">
@@ -80,7 +71,7 @@
     <button class="right" @click="next">
       <img src="arrowbtns-right.png" alt="">
     </button>
-  </div>
+  </div> -->
   <div class="toplayer">
   <div class="gaming">
     <h3>Gaming Accessories</h3>
@@ -174,14 +165,18 @@
 <div class="frequents">
   <h3>Frequently repurchased in supplies</h3>
   <img src="iPhone.jpg" >
+
    <!-- <button @click="prev" class="prev">-</button>
    <button @click="next" class="next">+</button> -->
+
 </div>
 <div class="topSellers">
 <h3>International top sellers in Home improvement</h3>
 <img src="HomeTheter.jpg" >
+
 <!-- <button @click="prev" class="prev">-</button>
    <button @click="next" class="next">+</button> -->
+
 </div>
 
 <div class="newArrivals">
@@ -249,17 +244,18 @@
  import Navigationbar from '@/views/Navigationbar.vue'
  import Footer from '@/views/Footer.vue'
 import { useRouter } from 'vue-router'
+import Carousel from "@/components/Carousel.vue";
 export default {
   name: 'HomePage',
     components: {
     Navigationbar,
-    Footer
+    Footer,
+    Carousel
   },
   setup(){
 const router = useRouter();
 
-const backgroundImages =  ['shop_Toys_Games.jpg', 'shipments.jpg', 'DadGifts.jpg', 'refresh.jpg','Beauty_selection.jpg'];
-
+const slides = ['shop_Toys_Games.jpg', 'shipments.jpg', 'DadGifts.jpg', 'refresh.jpg']
 const images = [ 'FujiQuadKeyboard.jpg',  'FujiQuadHeadset.jpg', 'FujiQuadMouse.jpg', 'FujiQuadChair.jpg' ];
 const healthImage = "Health.jpg";
 const toysImg = "Fuji_Dash_Toys.jpg"
@@ -278,22 +274,7 @@ const gamingMerch = [
   {image:"Mug.jpg", name:"Mugs"}
 
 ]
-// function prev(){
-//   for(let i = 0; i<frequents.length;){
-//     frequents[i]
-//   }
-//   i--
-// console.log(frequentsImage)
-// }
-// function next(){
-//   for(let i = 0; i<frequents.length;){
-//     frequents[i]
-//   }
-//   i++
-// console.log(frequentsImage)
 
-// }
-// const shipmentImage = "",
 const categoryImages = [
   {image: 'gamingLaptop.jpg', name: 'Computers & Accessories'},
   {image: 'PS4.jpg', name: 'Video Games'},
@@ -301,15 +282,6 @@ const categoryImages = [
   {image: 'Toys.jpg', name: 'Toys & Games'}
 ]
 
-const slideShow = () =>{
-  for(var i = 0; i<images.length; i++){   
-// const coverImage = images[i]
-   console.log(images[i]);
-
-  }
-  // console.log(coverImage)
-
-}
 
 function productsPage(){
 router.push('/ProductsPage')
@@ -317,10 +289,7 @@ router.push('/ProductsPage')
 function signIn(){
 router.push('/SignInPage');
 }
-function next(){
-const slides = document.querySelector('.carousel');
 
-}
 function toggleSidemenu(){
   const menu = document.querySelector('.backdrop');
   menu.style.display = "block";
@@ -338,7 +307,10 @@ function closeSidemenu(){
   module.classList = "";
 }
 
-return{  slideShow, images, categoryImages, healthImage, toysImg, frequentsImage, movieImages,gameImages, books, gamingMerch, productsPage, backgroundImages,next, toggleSidemenu, closeSidemenu}
+
+
+return{  images, categoryImages, healthImage, toysImg, frequentsImage, movieImages,gameImages, books, 
+gamingMerch, productsPage, toggleSidemenu, closeSidemenu, slides }
   },
  
 }
@@ -357,16 +329,6 @@ return{  slideShow, images, categoryImages, healthImage, toysImg, frequentsImage
   pointer-events: none;
   scroll-behavior: none;
 }
-.contain{
-  position: relative;
- overflow: hidden;
- height: 100vh;
-  background: #e5ece8;
-  object-fit: cover;
-}
-.carousel{
-  display: flex;
-}
 .cancel{
   font-size:28px;
    cursor: pointer;
@@ -376,12 +338,23 @@ return{  slideShow, images, categoryImages, healthImage, toysImg, frequentsImage
    z-index: 3;
    display: none;
 }
+.contain{
+ position: relative; 
+  overflow: hidden; 
+ height: 100vh;
+  background: #e5ece8;
+  object-fit: cover;
+}
+.carousel{
+  display: flex;
+}
 .slides{
 object-fit: cover;
-position:absolute;
+ position:absolute; 
  z-index:0;
- width: 100vw;
+  width: 100vw; 
  height: 90vh;
+ transition: 1s;
 }
 #backgroungImg{
   width: inherit;
@@ -389,18 +362,19 @@ position:absolute;
 }
 .right{
   background: transparent;
-  border: none;
+  
   cursor: pointer;
  margin-left:-120px ;
 }
 .left{
   background: transparent;
-  border: none;
+  
   cursor: pointer;
+  
 }
 .right :hover{
   visibility: visible;
-  border: blue;
+
 }
 .left :hover{
   visibility: visible;
