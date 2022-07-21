@@ -1,7 +1,7 @@
 <template>
     <div id="footer">
         <div class="backTop">
-            <h5 @click="top">Back To Top</h5>
+            <h5 @click="$emit('toTop')">Back To Top</h5>
         </div>
         <div class="mid-footer">
             <div class="container">
@@ -242,7 +242,6 @@ top
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(4,1fr);
-    /* border-bottom: 0.5px solid grey; */
 }
 .container p{
      font-size: 14px;

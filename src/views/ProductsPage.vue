@@ -9,7 +9,7 @@
   </div>
  <div class="Product-review">
 <div class="product-image">
-<img src="iPhone.jpg">
+<img src="iphone-g.png">
 </div>
 <div class="product-infor">
   <div class="information">
@@ -128,8 +128,8 @@ Inspected and guaranteed to have minimal cosmetic damage, which is not noticeabl
 </div>
   </div>
   <div class="segment-6">
-
-
+<h5>Note:</h5>
+<p> Products with electrical plugs are designed for use in the US. Outlets and voltage differ internationally and this product may require an adapter or converter for use in your destination. Please check compatibility before purchasing.</p>
   </div>
 <div>
 </div>
@@ -168,16 +168,20 @@ Inspected and guaranteed to have minimal cosmetic damage, which is not noticeabl
   
 </div>
 
-
-<a>Secure transaction</a>
+<font-awesome-icon icon="lock" />
+<p class="transaction-security"> Secure transaction</p>
 
 <span>Ships from</span>
 <span>Sold by</span>
 
 <span>Support:</span>
+<p>Free Amazon product support included</p>
 
+<label for="">Add a gift receipt for easy returns</label>
 </div>
-
+<div>
+  <button>Add to List</button>
+</div>
  </div>
 
 </div>
@@ -209,14 +213,16 @@ export default {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
+  padding: 20px 0;
+ 
+}
+.Product-review p{
+   font-size:14px;
 }
 .product-infor{
   display: flex;
 }
-.actions{
-  display: flex;
-  flex-direction: column;
-}
+
 .segment-1{
   display:flex;
   flex-direction: column;
@@ -235,7 +241,7 @@ export default {
 .part-1{
     display: flex;
 }
-.visit-link{
+.visit-link, .transaction-security{
   color:#007185;
   display: inline-flex;
 }
@@ -248,6 +254,7 @@ export default {
  display: flex;
  gap: 10px;
  padding: 5px 0;
+  font-size:14px;
 }
 .definition{
  font-weight: 600;
@@ -273,6 +280,7 @@ export default {
   color: grey;
   font-size:14px;
   display: inline-flex;
+  padding: 10px 0;
 }
 .segment-2 h4{
 font-weight: 600;
@@ -301,16 +309,24 @@ display: inline-flex;
 .product-image{
   height: 100vh;
   object-fit: cover;
+  position:sticky;
+  top:0;
+  width: 40vw;
 }
 .product-image img{
 height:inherit;
-width: 90%;
+top:10px;
+width: 60%;
+
 }
 .item-details{
   padding: 20px;
   display:flex;
   justify-content: flex-start;
   flex-direction: column;
+}
+.item-details li{
+  font-size:15px;
 }
 .item-details h4{
 margin:10px 0;
@@ -325,11 +341,20 @@ display: inline-flex;
   border-bottom: 0.5px solid grey;
   padding: 16px 0;
 }
+.segment-6{
+  display:flex;
+  justify-content: flex-start;
+  /* flex-direction: column; */
+}
+.segment-6 p{
+  display: inline-flex;
+}
 .actions{
-  padding: 5px;
-  width: 242px;
   display: flex;
   flex-direction: column;
+  padding: 20px;
+  width: 250px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 }
 .deliver{
   display: inline-flex;
@@ -339,6 +364,7 @@ display: inline-flex;
   font-size:18px;
   color:#007600;
   display: inline-flex;
+  padding: 10px 0;
 }
 .selector{
 border: 0.5px solid grey;

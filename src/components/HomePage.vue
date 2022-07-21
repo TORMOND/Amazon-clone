@@ -1,5 +1,4 @@
 <template>
-
   <div id="homepage">
     <font-awesome-icon @click="closeSidemenu" class="cancel" icon="xmark" />
     <div class="backdrop">
@@ -45,12 +44,9 @@
     </div>
     
     <div id="modulePage">
-
-   
+ 
    <Navigationbar  @activateMenu="toggleSidemenu" />
 
-
- 
 <div id="container">
   <div class="contain">
    
@@ -59,19 +55,9 @@
 <div class="slides">
   <carousel :slides="slides" :interval="10000" controls indicators></carousel>
 </div>
-     
-     
-</div>
+         
+   </div>
    
-  <!-- <div class="btns">
-    
- <button class="left" @click="prev">
-      <img src="arrowbtns-left.png" alt="">
-    </button>
-    <button class="right" @click="next">
-      <img src="arrowbtns-right.png" alt="">
-    </button>
-  </div> -->
   <div class="toplayer">
   <div class="gaming">
     <h3>Gaming Accessories</h3>
@@ -209,6 +195,8 @@
 
 <div class="newArrivals">
   <h3>Top Sellers in Baby Products for you </h3>
+  <button @click="plus">prev</button>
+  <button @click="minus">next</button>
   <ul class="products">
     <li>
       <img src="johnson.jpg"  >
@@ -219,9 +207,6 @@
     <li>
       <img src="cleaningTools.jpg"  >
     </li>
-
-      
-  
   </ul>
  
 </div>
@@ -235,7 +220,7 @@
 </div>
 </div>
  
- <Footer/>
+ <Footer  @toTop="top"  />
   </div>
   </div>
 </template>
@@ -245,6 +230,7 @@
  import Footer from '@/views/Footer.vue'
 import { useRouter } from 'vue-router'
 import Carousel from "@/components/Carousel.vue";
+
 export default {
   name: 'HomePage',
     components: {
@@ -273,15 +259,13 @@ const gamingMerch = [
   {image:"Figure.jpg", name:"Action-Figure"},
   {image:"Mug.jpg", name:"Mugs"}
 
-]
-
+];
 const categoryImages = [
   {image: 'gamingLaptop.jpg', name: 'Computers & Accessories'},
   {image: 'PS4.jpg', name: 'Video Games'},
   {image: 'Baby.jpg', name: 'Baby'},
   {image: 'Toys.jpg', name: 'Toys & Games'}
 ]
-
 
 function productsPage(){
 router.push('/ProductsPage')
@@ -306,11 +290,17 @@ function closeSidemenu(){
   const module = document.querySelector('#modulePage');
   module.classList = "";
 }
+function top(){
+  router.push('/');
+}
 
 
+return { 
+images, categoryImages, healthImage,
+toysImg, frequentsImage, movieImages, gameImages, books, 
+gamingMerch, productsPage, toggleSidemenu, closeSidemenu, slides , top
+}
 
-return{  images, categoryImages, healthImage, toysImg, frequentsImage, movieImages,gameImages, books, 
-gamingMerch, productsPage, toggleSidemenu, closeSidemenu, slides }
   },
  
 }
@@ -327,10 +317,11 @@ gamingMerch, productsPage, toggleSidemenu, closeSidemenu, slides }
   opacity: 0.5;
   user-select: none;
   pointer-events: none;
+  position:fixed;
   scroll-behavior: none;
 }
 .cancel{
-  font-size:28px;
+   font-size:28px;
    cursor: pointer;
    position: absolute;
    margin-top:10px;
@@ -361,20 +352,16 @@ object-fit: cover;
   height: inherit;
 }
 .right{
-  background: transparent;
-  
-  cursor: pointer;
+ background: transparent;
+ cursor: pointer;
  margin-left:-120px ;
 }
 .left{
-  background: transparent;
-  
-  cursor: pointer;
-  
+  background: transparent; 
+  cursor: pointer; 
 }
 .right :hover{
   visibility: visible;
-
 }
 .left :hover{
   visibility: visible;
@@ -497,7 +484,6 @@ gap: 20px;
   grid-template-columns: repeat(4, 1fr);
   gap:20px;
   padding: 20px;
-
 }
 .gifts{
   background-color: #fff;
@@ -558,6 +544,9 @@ gap: 20px;
    background-color: #fff;
   padding: 16px;
 }
+.newArrivals img{
+  width:inherit;
+}
 .books{
   background-color: #fff;
   padding: 16px;
@@ -583,11 +572,17 @@ border: none;
 }
 .products {
   position:relative;
+ 
 }
 .products  li{
   position: absolute;
     object-fit: cover;
     list-style: none;
+    width:inherit;
+}
+.products img{
+  width:inherit;
+  height: inherit;
 }
 .backdrop{
   display:none;
@@ -603,7 +598,6 @@ border: none;
  animation:slidemenu 0.8s;
  animation-timing-function: linear;
 }
-
 @keyframes slidemenu{
    from{
 transform: translateX(-250px);
@@ -612,7 +606,6 @@ transform: translateX(-250px);
  transform: translateX(0px);
    }
 }
-
 .rem-section{
   height:inherit;
 overflow-y:scroll;

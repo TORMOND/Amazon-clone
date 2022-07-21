@@ -49,4 +49,9 @@ export default {
 .slide-out-leave-to {
   transform: translateX(-100%);
 }
+.Image{
+  width:100vw;
+
+}
+
 </style>
